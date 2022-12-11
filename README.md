@@ -14,7 +14,7 @@ Block-chain's following features makes the above happen:
 
 
 ## 🧑‍💼User Story / Experience
-There are two paths in using this product:
+There are two types of users in this case:
 - Purchaser 
 - Manufacturer
 
@@ -26,4 +26,5 @@ The manufacturer can enter the details of the product made (recycled plastic % a
 ![User Interface](/apps/Architecture/UI.jpg)
 
 ## 🏗️ Program Architecture
+Database Design
 ![DataBase Design](/apps/Architecture/DB%20Structure.jpg)
