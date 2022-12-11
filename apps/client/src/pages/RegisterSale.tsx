@@ -22,15 +22,7 @@ const RegisterSale = () => {
             <Form.Control></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Buyer's Public Key</Form.Label>
-            <Form.Control></Form.Control>
-          </div>
-          <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Serial #</Form.Label>
-            <Form.Control></Form.Control>
-          </div>
-          <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Net Weight</Form.Label>
             <Form.Control></Form.Control>
           </div>
           <div className="d-flex m-1">
@@ -38,14 +30,30 @@ const RegisterSale = () => {
             <Form.Control></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Ingridient</Form.Label>
+            <Form.Label style={{width:"150px"}}>Purchaser's ID</Form.Label>
+            <Form.Control></Form.Control>
+          </div>
+          <div className="d-flex m-1">
+            <Form.Label style={{width:"150px"}}>Ingridient Id</Form.Label>
+            <Form.Control></Form.Control>
+          </div>
+          <div className="d-flex m-1">
+            <Form.Label style={{width:"150px"}}>Net Weight</Form.Label>
+            <Form.Control></Form.Control>
+          </div>
+          <div className="d-flex m-1 mt-4">
+            <Form.Label style={{width:"150px"}} className="">Sale Year</Form.Label>
+            <Form.Control></Form.Control>
+          </div>
+          <div className="d-flex m-1 ">
+            <Form.Label style={{width:"150px"}} className="">Sale Month</Form.Label>
             <Form.Control></Form.Control>
           </div>
           <div className="d-flex m-1 mb-4">
-            <Form.Label style={{width:"150px"}} className="">Date of Sale</Form.Label>
+            <Form.Label style={{width:"150px"}} className="">Sale Date</Form.Label>
             <Form.Control></Form.Control>
           </div>
-          <div className="d-flex m-1 mb-4">
+          <div className="d-flex m-1 mt-4">
             <Form.Label style={{width:"150px"}} className="">Location (Lat)</Form.Label>
             <Form.Control></Form.Control>
           </div>

@@ -12,6 +12,10 @@ const ItemDetail = () => {
           <h3>Product Details</h3>
           <Form className="text-center mt-1">
           <div className="d-flex m-1">
+            <Form.Label style={{width:"150px"}}>Product ID</Form.Label>
+            <Form.Control disabled></Form.Control>
+          </div>
+          <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Name</Form.Label>
             <Form.Control disabled></Form.Control>
           </div>
@@ -39,7 +43,7 @@ const ItemDetail = () => {
             <Form.Label style={{width:"150px"}} className="">Date of Sale</Form.Label>
             <Form.Control disabled></Form.Control>
           </div>
-          <div className="d-flex m-1 mb-4">
+          <div className="d-flex m-1 mt-4">
             <Form.Label style={{width:"150px"}} className="">Location (Lat)</Form.Label>
             <Form.Control disabled></Form.Control>
           </div>

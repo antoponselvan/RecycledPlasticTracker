@@ -8,7 +8,7 @@ const manufacturerSchema = new mongoose.Schema({
     solanaPubKey: String,
     email: String,
     phoneNum: String,
-    Address: String,
+    address: String,
     password: String,
     auxInfoHash: String
 }, {

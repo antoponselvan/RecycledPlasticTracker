@@ -4,6 +4,9 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 require("dotenv").config()
 
+
+const manufacturerRouter = require("./routes/manufacturerRoutes")
+const productRouter = require("./routes/productRoutes")
 const generalRouter = require("./routes/generalRoutes")
 
 const app = express()
@@ -16,6 +19,8 @@ app.use(express.json())
 app.use(cors())
 
 app.use("/api/general",generalRouter)
+app.use("/api/manufacturer", manufacturerRouter)
+app.use("/api/product", productRouter)
 
 mongoose.connection.once("open", ()=>{
     console.log("DB connected")

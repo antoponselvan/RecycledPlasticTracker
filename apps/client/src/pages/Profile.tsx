@@ -10,6 +10,10 @@ const Profile = () => {
       <Col className="border p-1 m-2 mt-5">
         <h3>UPDATE PROFILE</h3>
         <Form className="text-center mt-4">
+        <div className="d-flex m-1">
+            <Form.Label style={{width:"150px"}}>ID</Form.Label>
+            <Form.Control disabled></Form.Control>
+          </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Name</Form.Label>
             <Form.Control disabled></Form.Control>
@@ -24,10 +28,14 @@ const Profile = () => {
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Email</Form.Label>
-            <Form.Control></Form.Control>
+            <Form.Control disabled></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Phone #</Form.Label>
+            <Form.Control></Form.Control>
+          </div>
+          <div className="d-flex m-1">
+            <Form.Label style={{width:"150px"}}>Address</Form.Label>
             <Form.Control></Form.Control>
           </div>
           <div className="d-flex m-1">
