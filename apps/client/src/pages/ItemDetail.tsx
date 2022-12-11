@@ -1,7 +1,22 @@
 
 import {Row, Col, Container, Form} from "react-bootstrap"
+import {useState, useEffect} from "react"
+import { useParams } from "react-router-dom"
 
 const ItemDetail = () => {
+  const [itemDetail, setItemDetail] = useState({product:{},manufacturer:{}})
+  let params = useParams()
+  const productId = params.productId
+
+  useEffect(()=>{
+    fetch(("/api/product/getone/"+productId))
+    .then((res)=>res.json())
+    .then((data)=>{
+      console.log(data)
+      setItemDetail(data)
+    })
+  },[])
+
   return (
     <>
     
@@ -13,43 +28,43 @@ const ItemDetail = () => {
           <Form className="text-center mt-1">
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Product ID</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.product._id}></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Name</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.product.name}></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Description</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.product.description}></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Buyer's Public Key</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Label style={{width:"150px"}}>Buyer's ID</Form.Label>
+            <Form.Control disabled placeholder={itemDetail.product.purchaserId}></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Serial #</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.product.serialNum}></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Net Weight</Form.Label>
+            <Form.Label style={{width:"150px"}} placeholder={itemDetail.product.weightKg}>Net Weight</Form.Label>
             <Form.Control disabled></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Re-Plastic %</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.product.rePlasticPct}></Form.Control>
           </div>
           <div className="d-flex m-1 mb-4">
             <Form.Label style={{width:"150px"}} className="">Date of Sale</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.product.saleYear}></Form.Control>
           </div>
           <div className="d-flex m-1 mt-4">
             <Form.Label style={{width:"150px"}} className="">Location (Lat)</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.product.manufacLocLatDeg}></Form.Control>
           </div>
           <div className="d-flex m-1 mb-4">
             <Form.Label style={{width:"150px"}} className="">Location (Lng)</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.product.manufacLocLongDeg}></Form.Control>
           </div>
           </Form>
         
@@ -60,27 +75,27 @@ const ItemDetail = () => {
           <Form className="text-center mt-2">
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Name</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled  placeholder={itemDetail.manufacturer.name}></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Country</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.manufacturer.regCountry}></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Registration #</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.manufacturer.regNum}></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Email</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.manufacturer.email}></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Phone #</Form.Label>
-            <Form.Control disabled></Form.Control>
+            <Form.Control disabled placeholder={itemDetail.manufacturer.phoneNum}></Form.Control>
           </div>
           <div className="d-flex m-1 mb-4">
             <Form.Label style={{width:"150px"}} className="text-danger">Public Key (Solana)</Form.Label>
-            <Form.Control  disabled></Form.Control>
+            <Form.Control  disabled placeholder={itemDetail.manufacturer.solanaPubKey}></Form.Control>
           </div>
         </Form>
         </Row>

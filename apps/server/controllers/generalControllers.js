@@ -9,16 +9,21 @@ const trackProduct = async (req, res) => {
     try{
 
         let manufacturer = await Manufacturer.findOne({solanaPubKey})
-        manufacturer = manufacturer.toObject()
+        if (!(manufacturer)){
+            res.status(400).json({msg:"No such manufacturer"})
+            return
+        }
+        // manufacturer = manufacturer.toObject()
         let product = await Product.findOne({
             manufacturerId:manufacturer._id,
             serialNum
         }) 
-        if (!(product && manufacturer)){
+        if (!(product)){
             res.status(400).json({msg:"No such product found"})
             return
         }
         trackDetails.push({
+            productId: product._id,
             manufacturerName: manufacturer.name,
             productName: product.name,
             rePlasticPct: product.rePlasticPct,
@@ -32,6 +37,7 @@ const trackProduct = async (req, res) => {
             manufacturer = await Manufacturer.findById(product.manufacturerId)
             recyclingStartPoint = product.recyclingStartPoint
             trackDetails.push({
+                productId: product._id,
                 manufacturerName: manufacturer.name,
                 productName: product.name,
                 rePlasticPct: product.rePlasticPct,

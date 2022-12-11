@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<MainLayout/>}>
           <Route index element={<HomeAll/>}/>
           <Route path="/track" element={<TrackItem/>}/>
-          <Route path="/itemdetail" element={<ItemDetail/>}/>
+          <Route path="/itemdetail/:productId" element={<ItemDetail/>}/>
           <Route path="/manufacturer/home" element={<HomeManufacturer/>}/>
           <Route path="/manufacturer/login" element={<Login/>}/>
           <Route path="/manufacturer/register" element={<Register/>}/>
