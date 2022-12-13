@@ -52,8 +52,29 @@ const trackProduct = async (req, res) => {
         res.status(500).json({mg:"Unknown server error"})
     }
 
-    res.json("Track product")
+    // res.json("Track product")
 }
 
+const verifyUser = async (req,res) =>{
+    const manufacturerId = req.manufacturerId
+    try{
+        const manufacturer = await Manufacturer.findById(manufacturerId)
+        if (!manufacturer){
+            res.status(404).json({msg:"No user found"})
+            return
+        }
+        
+        let manufacturerObj = manufacturer.toObject()
+        delete manufacturerObj.password
+        res.status(200).json({
+            manufacturer:manufacturerObj,
+            msg:"Manufacturer Verified"})
+        return        
+       
+    }catch(error){
+        console.log(error)
+        res.status(500).json({msg:"Unknown Server Error"})
+    }
+}
 
-module.exports = {trackProduct}
+module.exports = {trackProduct, verifyUser}

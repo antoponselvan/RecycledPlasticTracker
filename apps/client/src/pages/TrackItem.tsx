@@ -30,7 +30,7 @@ const TrackItem = () => {
       return res.json()
     })
     .then((data)=>{
-      console.log(data)
+      // console.log(data)
       setTrackDetails(data)
     })
     .catch((error)=>{

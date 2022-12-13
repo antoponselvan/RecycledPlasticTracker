@@ -28,15 +28,16 @@ const registerProduct = async (req, res) => {
     manufacLocLatDeg = Number(manufacLocLatDeg)
     manufacLocLongDeg = Number(manufacLocLongDeg)
     recyclingStartPoint = Boolean(recyclingStartPoint)
-    // console.log(name,serialNum,rePlastic,purchaserId,ingridientId,saleYear,recyclingStartPoint,manufacLocLatDeg)
-    if (!(name&&serialNum&&rePlasticPct&&saleYear&&recyclingStartPoint&&manufacLocLatDeg&&manufacLocLongDeg&&recyclingStartPoint)){
+    console.log(name,serialNum,rePlasticPct,purchaserId,ingridientId,saleYear,recyclingStartPoint,manufacLocLatDeg)
+    if (!(name && serialNum && rePlasticPct && saleYear && recyclingStartPoint && manufacLocLatDeg && manufacLocLongDeg && recyclingStartPoint)){ 
+        //  )){
         console.log("Fill all details")
-        res.status(400).json({msg:"Fill all details"})
+        res.status(400).json({msg:"Error: Fill all details"})
         return
     }
 
     if ((!recyclingStartPoint)&&(!ingridientId)){
-        res.status(400).json({msg:"Ingridient needed if not starting point"})
+        res.status(400).json({msg:"Error: Ingridient needed if not starting point"})
         return
     }
 
@@ -44,13 +45,18 @@ const registerProduct = async (req, res) => {
     try{
         const boughtProduct = await Product.findOne({purchaserId:manufacturerId, _id:ingridientId})
         if (!boughtProduct){
-            res.status(400).json({msg:"You cannot link a ingridient that you have not bought"})
+            res.status(400).json({msg:"Error: You cannot link a ingridient that you have not bought"})
             return
         }
-        
+        const buyer = await Manufacturer.findById(purchaserId)
+        if (!(buyer.name)){
+            res.status(400).json({msg:"Error: Buyer ID doesnt exist"})
+            return
+        }
+
         const existingProduct = await Product.findOne({manufacturerId, serialNum})
         if (existingProduct){
-            res.status(400).json({msg:"Product already exists"})
+            res.status(400).json({msg:"Error: Product already exists"})
             return
         }
         const newProduct = await Product.create({manufacturerId,name,description,serialNum,rePlasticPct,purchaserId, ingridientId, weightKg,saleYear,saleMonth,saleDate,manufacLocLatDeg,manufacLocLongDeg, recyclingStartPoint})
@@ -59,7 +65,7 @@ const registerProduct = async (req, res) => {
 
     }catch (error){
         console.log(error)
-        res.status(500).json({msg:"Unknown server error"})
+        res.status(500).json({msg:"Error: Unknown server error"})
         return
     }
 }

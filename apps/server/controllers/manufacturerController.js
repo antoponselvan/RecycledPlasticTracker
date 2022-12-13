@@ -8,17 +8,20 @@ const loginManufacturer = async (req, res) => {
     const {email, password} = req.body;
     try{
         const manufacturer = await Manufacturer.findOne({email})
+        let manufacturerObj = manufacturer.toObject()
+        delete manufacturerObj.password
         if (!manufacturer){
             res.status(404).json({msg:"No user found"})
             return
         }
-        const id = manufacturer.id
+        const _id = manufacturer.id
         if (bcrypt.compareSync(password, manufacturer.password)) {
-            const token = jwt.sign({id}, process.env.SECRET, {
+            const token = jwt.sign({_id}, process.env.SECRET, {
                 expiresIn:'1D'
             })
             res.status(202).json({token,
-            msg:"Login Successful"})
+                manufacturer:manufacturerObj,
+                msg:"Login Successful"})
             return;
         } else {
             res.status(403).json({msg:"Wrong password"})
@@ -64,19 +67,20 @@ const registerManufacturer = async (req, res) => {
 
 const updateManufacturer = async (req, res) => {
 
-    const {id, phoneNum, address, password} = req.body
-    if (id !== req.manufacturerId){
-        res.status(401).json({msg: "Unauthorized! IDs dont match"})
-        return
-    }
-    const manufacturer = await Manufacturer.findById(id)
-    manufacturer.phoneNum = phoneNum
-    manufacturer.address = address
-    manufacturer.password = bcrypt.hashSync(password, 10)
-    await manufacturer.save()
+    const {phoneNum, address, password} = req.body
 
-    res.json({id: req.manufacturerId,
-        msg: "Updated Manufacturer"})
+    try{
+        const manufacturer = await Manufacturer.findById(req.manufacturerId)
+        manufacturer.phoneNum = phoneNum
+        manufacturer.address = address
+        manufacturer.password = bcrypt.hashSync(password, 10)
+        await manufacturer.save()
+        res.json({id: req.manufacturerId,
+            msg: "Updated Manufacturer"})
+    }catch (error){
+        console.log(error)
+        res.status(500).json({msg:"Unknown Server Error"})
+    }
 }
 
 const getManufacturerBasicDetails = async (req, res) => {
@@ -86,11 +90,8 @@ const getManufacturerBasicDetails = async (req, res) => {
         const productList = await Product.find({manufacturerId},["rePlasticPct"])
         const latestProductListRaw = await Product.find({manufacturerId}).sort({createdAt:'desc'}).limit(5)
         const latestProductList = latestProductListRaw.map((pdt)=>pdt.toObject())
-        // console.log(productList)
         const productCount = productList.length
-        // console.log(productList)
         const avgRecycledPlasticPct = (productList.reduce((curr, next)=>{
-            // console.log(curr, next)
             return (curr + next.rePlasticPct)},0))/productCount
         res.status(200).json({productCount, avgRecycledPlasticPct, latestProductList})
         return

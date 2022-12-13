@@ -5,7 +5,6 @@ import HomeAll from "./pages/HomeAll"
 import HomeManufacturer from "./pages/HomeManufacturer"
 import ItemDetail from "./pages/ItemDetail"
 import Login from "./pages/Login"
-import PurchasedItemsList from "./pages/PurchasedItemsList"
 import Register from "./pages/Register"
 import RegisterSale from "./pages/RegisterSale"
 import SoldItemsList from "./pages/SoldItemsList"
@@ -27,7 +26,6 @@ function App() {
           <Route path="/manufacturer/register" element={<Register/>}/>
           <Route path="/manufacturer/registersale" element={<RegisterSale/>}/>
           <Route path="/manufacturer/solditemslist" element={<SoldItemsList/>}/>
-          <Route path="/manufacturer/purchaseditemslist" element={<PurchasedItemsList/>}/>
           <Route path="/manufacturer/profile" element={<Profile/>}/>
 
         </Route>
