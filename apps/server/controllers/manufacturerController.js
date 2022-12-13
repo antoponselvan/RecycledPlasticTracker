@@ -79,8 +79,27 @@ const updateManufacturer = async (req, res) => {
         msg: "Updated Manufacturer"})
 }
 
-const getManufacturerBasicDetails = (req, res) => {
-    res.json("basic details")
+const getManufacturerBasicDetails = async (req, res) => {
+
+    const manufacturerId = req.manufacturerId
+    try{
+        const productList = await Product.find({manufacturerId},["rePlasticPct"])
+        const latestProductListRaw = await Product.find({manufacturerId}).sort({createdAt:'desc'}).limit(5)
+        const latestProductList = latestProductListRaw.map((pdt)=>pdt.toObject())
+        // console.log(productList)
+        const productCount = productList.length
+        // console.log(productList)
+        const avgRecycledPlasticPct = (productList.reduce((curr, next)=>{
+            // console.log(curr, next)
+            return (curr + next.rePlasticPct)},0))/productCount
+        res.status(200).json({productCount, avgRecycledPlasticPct, latestProductList})
+        return
+    }catch(error){
+        console.log(error)
+        res.status(500).json({msg:"Unknown Server Error"})
+        return
+    }
+
 }
 
 module.exports = {
