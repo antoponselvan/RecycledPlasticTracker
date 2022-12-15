@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
 import { Button } from "react-bootstrap"
-import {faMagnifyingGlass, faHouseUser, faUser} from "@fortawesome/free-solid-svg-icons"
+import {faMagnifyingGlass, faHouseUser, faUser, faSquareCheck, faSquareXmark} from "@fortawesome/free-solid-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 const NavBar = () => {
