@@ -31,10 +31,10 @@ const NavBar = () => {
           </Nav>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           {(manufacturer.name) && <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto me-3">
+            <Nav className="ms-auto me-3 align-items-center">
               <Nav.Link onClick={()=>navigate("/manufacturer/home")}><FontAwesomeIcon icon={faHouseUser}/></Nav.Link>
-              <Nav.Link onClick={()=>navigate("/manufacturer/registersale")}>Register</Nav.Link>
-              <Nav.Link onClick={()=>navigate("/manufacturer/solditemslist")}>Sold_Items</Nav.Link>
+              <Nav.Link onClick={()=>navigate("/manufacturer/registersale")}><Button variant='secondary'>Register Product</Button></Nav.Link>
+              <Nav.Link onClick={()=>navigate("/manufacturer/solditemslist")}><Button variant='secondary'>Past Registrations</Button></Nav.Link>
               <Nav.Link onClick={()=>navigate("/manufacturer/profile")}><FontAwesomeIcon icon={faUser} /></Nav.Link>
             </Nav>
           </Navbar.Collapse>}

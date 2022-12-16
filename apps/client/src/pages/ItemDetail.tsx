@@ -130,14 +130,6 @@ const ItemDetail = () => {
             <Form.Label style={{width:"150px"}} className="">Date of Sale</Form.Label>
             <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.product.saleDate+"-"+itemDetail.product.saleMonth+"-"+itemDetail.product.saleYear}></Form.Control>
           </div>
-          {/* <div className="d-flex m-1 mt-4">
-            <Form.Label style={{width:"150px"}} className="">Location (Lat)</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.product.manufacLocLatDeg}></Form.Control>
-          </div>
-          <div className="d-flex m-1 mb-4">
-            <Form.Label style={{width:"150px"}} className="">Location (Lng)</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.product.manufacLocLongDeg}></Form.Control>
-          </div> */}
           </Form>
         
         </Row>
@@ -177,14 +169,21 @@ const ItemDetail = () => {
         </Row>
 
       </Col>
-      <Col lg={4} sm={1} md={3}></Col>
+      <Col lg={4} sm={1} md={3}>
+      <div className="d-flex justify-content-start align-items-start mt-5">
+        <div className="bg-success p-1">
+          <FontAwesomeIcon icon={faSquareCheck}/>
+        </div>
+        <p>.   Verified (Solana)</p>
+      </div>
+      <div className="d-flex justify-content-start align-items-start">
+        <div className="bg-danger p-1">
+          <FontAwesomeIcon icon={faSquareXmark}/>
+        </div>
+        <p>.  UnVerified</p>
+      </div>
+      </Col>
     </Row>
-    {/* <div>
-      <p>{itemDetailSolana.manufacturerKey}</p>
-      <p>{itemDetailSolana.serialNum}</p>
-      <p>{itemDetailSolana.purchaserKey}</p>
-      <p>{itemDetailSolana.rePlasticPct}</p>
-    </div> */}
     </>
   )
 }
