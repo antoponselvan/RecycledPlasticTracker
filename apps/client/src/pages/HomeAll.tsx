@@ -1,5 +1,5 @@
 import img1 from "../assets/recycling_img1.jpg"
-import { Container, Row, Col, Button} from "react-bootstrap"
+import { Container, Row, Col, Button, Card} from "react-bootstrap"
 import {useNavigate} from 'react-router-dom'
 
 const HomeAll = () => {
@@ -13,10 +13,15 @@ const HomeAll = () => {
         <Col className="text-center mx-auto justify-content-center">
           {/* <Stack className="text-align-center"> */}
             <p></p>          
-            <h3>Participate in Responsible Plastic Usage</h3>
+            <h3>Recycled Plastic Certifier & Verifier</h3>
+            <p></p>
+            <Card className="mt-4">
+            <Card.Header>
             <h5>Choose Your Role</h5>
             <Button className="m-2" onClick={()=>navigate('/manufacturer/login')}>Manufacturer</Button>
-            <Button className="m-2" onClick={()=>navigate('/track')}>Product User</Button>
+            <Button className="m-2" onClick={()=>navigate('/track')}>Product Purchaser</Button>
+            </Card.Header>
+            </Card>
             <img className="" src={img1} alt=""/>  
           {/* </Stack> */}
         </Col>

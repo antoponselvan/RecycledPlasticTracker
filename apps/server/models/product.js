@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
     rePlasticPct: Number,
     purchaserId: {type:mongoose.Schema.Types.ObjectId, ref:"manufacturer"},
     ingridientId: {type:mongoose.Schema.Types.ObjectId, ref:"product"},
-    weightKg: Number,
+    // weightKg: {type: Number, default:100},
     saleYear: Number,
     saleMonth: Number,
     saleDate: Number,

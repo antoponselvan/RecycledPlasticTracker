@@ -80,37 +80,41 @@ const TrackItem = () => {
     <Row className="text-center mt-5">
       <h3>Tracking Details</h3>
     </Row>
-    {
-      (trackDetails.length > 0) &&
-      <Table striped bordered hover className="mx-3">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Company Name</th>
-          <th>Product Name</th>
-          <th>Re-Plastic %</th>
-          <th>Location</th>
-          <th>Sale Date</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Row>
+      <Col lg={3} md={1} sm={1}></Col>
+      <Col>
         {
-          trackDetails.map((row, idx)=>
-          <tr onClick={handleProductClick(row.productId)} style={{cursor:"pointer"}}>
-            <td>{idx+1}</td>
-            <td>{row.manufacturerName}</td>
-            <td>{row.productName}</td>
-            <td>{row.rePlasticPct}</td>
-            <td>{row.location}</td>
-            <td>{row.saleDate}</td>
-         </tr>
-          )
-        }
-        
-        
-      </tbody>
-    </Table>
-      }
+          (trackDetails.length > 0) &&
+          <Table striped bordered hover className="mx-3">
+          <thead className="bg-secondary">
+            <tr>
+              <th style={{width:"50px"}}>#</th>
+              <th>Company Name</th>
+              <th>Product Name</th>
+              <th style={{width:"130px"}}>Re-Plastic %</th>
+              <th  style={{width:"160px"}}>Location</th>
+              <th style={{width:"130px"}}>Sale Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              trackDetails.map((row, idx)=>
+              <tr onClick={handleProductClick(row.productId)} style={{cursor:"pointer"}}>
+                <td>{idx+1}</td>
+                <td>{row.manufacturerName}</td>
+                <td>{row.productName}</td>
+                <td>{row.rePlasticPct}</td>
+                <td>{row.location}</td>
+                <td>{row.saleDate}</td>
+            </tr>
+              )
+            }     
+          </tbody>
+        </Table>
+          }
+      </Col>
+      <Col lg={3} md={1} sm={1}></Col>
+    </Row>
     
     </>
   )

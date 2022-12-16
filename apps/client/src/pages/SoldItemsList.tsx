@@ -1,4 +1,4 @@
-import {Row, Col, Container, Table} from "react-bootstrap"
+import {Row, Col, Container, Table, Card} from "react-bootstrap"
 import {useSelector} from "react-redux"
 import { useNavigate } from "react-router-dom"
 import {useState, useEffect} from "react"
@@ -43,16 +43,21 @@ const SoldItemsList = () => {
     <>
     <Container>
       <Row className="text-center mt-3">
-        <h3>List of Products Registered</h3>
-
-        <Table striped bordered hover className="mx-3">
-        <thead>
+      <Col lg={3} md={1} sm={1}></Col>
+      <Col>
+        <Card>
+          <Card.Header>
+            <h3>List of Products Registered</h3>
+          </Card.Header>
+        </Card>
+        <Table striped bordered hover className="mt-3">
+        <thead className="bg-secondary">
           <tr>
-            <th>#</th>
+            <th style={{width:"50px"}}>#</th>
             <th>Product Name</th>
-            <th>Re-Plastic %</th>
-            <th>Location</th>
-            <th>Sale Date</th>
+            <th style={{width:"130px"}}>Re-Plastic %</th>
+            <th style={{width:"160px"}}>Location</th>
+            <th style={{width:"130px"}}>Sale Date</th>
           </tr>
         </thead>
         <tbody>
@@ -69,7 +74,9 @@ const SoldItemsList = () => {
           }     
         </tbody>
       </Table>
-      </Row>
+      </Col>
+      <Col lg={3} md={1} sm={1}></Col>
+      </Row>  
     </Container>
     </>
   )

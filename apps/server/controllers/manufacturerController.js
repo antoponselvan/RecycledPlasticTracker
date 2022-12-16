@@ -4,16 +4,33 @@ const Manufacturer = require("../models/manufacturer")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
+const getManufacturer = async (req,res) => {
+    const id = req.params.id
+    try{
+        const manufacturer = await Manufacturer.findById(id)
+        if (!manufacturer){
+            res.status(404).json({msg:"No user found"})
+            return
+        }        
+        let manufacturerObj = manufacturer.toObject()
+        delete manufacturerObj.password
+        res.status(200).json({manufacturer:manufacturerObj})
+    }catch(error){
+        console.log(error)
+        res.status(500).json({msg:"Unknown server error"})
+    }
+}
+
 const loginManufacturer = async (req, res) => {
     const {email, password} = req.body;
     try{
         const manufacturer = await Manufacturer.findOne({email})
-        let manufacturerObj = manufacturer.toObject()
-        delete manufacturerObj.password
         if (!manufacturer){
             res.status(404).json({msg:"No user found"})
             return
-        }
+        }        
+        let manufacturerObj = manufacturer.toObject()
+        delete manufacturerObj.password
         const _id = manufacturer.id
         if (bcrypt.compareSync(password, manufacturer.password)) {
             const token = jwt.sign({_id}, process.env.SECRET, {
@@ -58,10 +75,11 @@ const registerManufacturer = async (req, res) => {
         // console.log(name, solanaPubKey)
         console.log(newManufacturer.id)
         res.status(201).json({msg:"Manufacturer Registered"})
-
+        return
     }catch (error){
         console.log(error);
         res.status(500).json({msg: "Unknown Server Error"})
+        return
     }
 }
 
@@ -107,5 +125,6 @@ module.exports = {
     loginManufacturer,
     registerManufacturer,
     updateManufacturer,
-    getManufacturerBasicDetails
+    getManufacturerBasicDetails,
+    getManufacturer
 }
