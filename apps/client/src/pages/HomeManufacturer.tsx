@@ -1,4 +1,4 @@
-
+// @ts-nocheck 
 import {Row, Col, Table, Card, CardGroup } from "react-bootstrap"
 import {useSelector} from "react-redux"
 import {useState, useEffect} from "react"

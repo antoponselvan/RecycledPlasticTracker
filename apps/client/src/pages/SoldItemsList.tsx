@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import {Row, Col, Container, Table, Card} from "react-bootstrap"
 import {useSelector} from "react-redux"
 import { useNavigate } from "react-router-dom"

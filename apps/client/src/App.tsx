@@ -1,4 +1,4 @@
-
+// @ts-nocheck 
 import {Route, BrowserRouter, Routes} from "react-router-dom"
 import MainLayout from "./layout/MainLayout"
 import HomeAll from "./pages/HomeAll"

@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import img1 from "../assets/recycling_img1.jpg"
 import { Container, Row, Col, Button, Card} from "react-bootstrap"
 import {useNavigate} from 'react-router-dom'

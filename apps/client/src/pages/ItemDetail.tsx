@@ -1,4 +1,4 @@
-
+// @ts-nocheck 
 import {Row, Col, Container, Form} from "react-bootstrap"
 import {faSquareCheck, faSquareXmark} from "@fortawesome/free-solid-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"

@@ -1,3 +1,4 @@
+// @ts-nocheck 
 
 import { GoogleMap, LoadScript, Marker, MarkerF  } from '@react-google-maps/api';
 
