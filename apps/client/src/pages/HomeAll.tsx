@@ -18,8 +18,8 @@ const HomeAll = () => {
             <Card className="mt-4">
             <Card.Header>
             <h5>Choose Your Role</h5>
-            <Button className="m-2" onClick={()=>navigate('/manufacturer/login')}>Manufacturer</Button>
-            <Button className="m-2" onClick={()=>navigate('/track')}>Product Purchaser</Button>
+            <Button className="m-2" style={{width:"160px"}} onClick={()=>navigate('/manufacturer/login')}>Manufacturer</Button>
+            <Button className="m-2" style={{width:"160px"}} onClick={()=>navigate('/track')}>Purchaser</Button>
             </Card.Header>
             </Card>
             <img className="" src={img1} alt=""/>  

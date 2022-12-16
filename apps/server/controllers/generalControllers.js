@@ -27,6 +27,8 @@ const trackProduct = async (req, res) => {
             manufacturerName: manufacturer.name,
             productName: product.name,
             rePlasticPct: product.rePlasticPct,
+            lat: product.manufacLocLatDeg,
+            lng: product.manufacLocLongDeg,
             location: ("Lat:"+String(product.manufacLocLatDeg)+" - Long:"+String(product.manufacLocLongDeg)),
             saleDate: (String(product.saleDate)+"-"+String(product.saleMonth)+"-"+String(product.saleYear))
         })
@@ -41,6 +43,8 @@ const trackProduct = async (req, res) => {
                 manufacturerName: manufacturer.name,
                 productName: product.name,
                 rePlasticPct: product.rePlasticPct,
+                lat: product.manufacLocLatDeg,
+                lng: product.manufacLocLongDeg,
                 location: ("Lat:"+String(product.manufacLocLatDeg)+" - Long:"+String(product.manufacLocLongDeg)),
                 saleDate: (String(product.saleDate)+"-"+String(product.saleMonth)+"-"+String(product.saleYear))
             })

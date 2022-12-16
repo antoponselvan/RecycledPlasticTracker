@@ -2,11 +2,42 @@
 import {Row, Col, Form, Button, Table} from "react-bootstrap"
 import {useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom"
+import ReactGoogleMap from "../components/ReactGoogleMap"
+
+const center1 = {
+  lat: 0,
+  lng: -180
+}
+
+const positions1 = [
+  {lat: 37.772, lng: -122.214},
+  {lat: 0, lng: -122.214}
+]
+
 
 const TrackItem = () => {
   const [trackDetails, setTrackDetails] = useState([])
   const [fetchFailed, setFetchFailed] = useState(false)
   const navigate = useNavigate()
+
+  const center = {lat: 0, lng: 0}
+  
+  let positions = [
+    {lat: 0, lng: 0}
+  ]
+  if (trackDetails.length>0){
+    center.lat = trackDetails.reduce((latSum, ManufacStage)=>(latSum+(ManufacStage.lat)),0)/(trackDetails.length)
+    center.lng = trackDetails.reduce((latSum, ManufacStage)=>(latSum+(ManufacStage.lat)),0)/(trackDetails.length)
+
+    positions=[]
+    positions=trackDetails.map((manufacStage)=>{
+      return {
+        lat:manufacStage.lat,
+        lng:manufacStage.lng
+      }
+    })
+  }
+  console.log(center, positions, trackDetails)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -69,9 +100,6 @@ const TrackItem = () => {
       </Col>
       <Col lg={4} sm={1} md={3}></Col>
     </Row>
-
-    
-
     {
       fetchFailed ? <p>Fetch Error</p>
       :
@@ -114,6 +142,9 @@ const TrackItem = () => {
           }
       </Col>
       <Col lg={3} md={1} sm={1}></Col>
+    </Row>
+    <Row className="d-flex justify-content-center">
+      <ReactGoogleMap center={center} positions={positions}/>
     </Row>
     
     </>
