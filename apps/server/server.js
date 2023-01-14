@@ -26,7 +26,8 @@ app.use("/api/product", productRouter)
 
 // Connect to FrontEnd routing
 app.get("/*", (req,res)=>{
-    res.sendFile(path.resolve("../client/dist/index.html"))
+    // res.sendFile(path.resolve("../client/dist/index.html"))
+    res.sendFile(path.resolve("./client_dist/index.html"))
 })
 
 mongoose.connection.once("open", ()=>{

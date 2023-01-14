@@ -10,7 +10,7 @@ const containerStyle = {
 const ReactGoogleMap = ({center, positions}) => {
   return (
     <LoadScript
-      googleMapsApiKey=""
+      googleMapsApiKey="AIzaSyCycdUnvZh2fQygV8qdOB-dukmcH5MEwJw"
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
