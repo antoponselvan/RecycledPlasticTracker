@@ -11,6 +11,6 @@ generalRouter.get("/test", (req,res)=>{
 })
 
 generalRouter.post("/track", trackProduct)
-generalRouter.get("/verifyuser", protect, verifyUser)
+generalRouter.get("/verifyuser", protect, verifyUser);
 
 module.exports = generalRouter
