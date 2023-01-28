@@ -1,4 +1,5 @@
 # Solana Recycled Plastic Tracker - Mission to eliminate plastic wastage
+[Link to Live Deployment](http://solanaplastic.antofrancis.com)
 
 Recycling plastic can happen at different stages and it costs additional $ to do the same. This project aims to create a working prototype that enables creation of tracking and certification system using block-chain that makes it feasible to target incentives to plastic recycling at scale
 
@@ -9,8 +10,6 @@ For a feasible recycled plastic recycling tracker following features are needed:
 - Easily trusted by various parties involved in the manufacturing value chain
 - Minimal Manual intervention for certification
 - Easy to spot and persecute falsifiers
-
-[Link to Live Deployment](http://solanaplastic.antofrancis.com)
 
 Block-chain's following features makes the above happen:
 
