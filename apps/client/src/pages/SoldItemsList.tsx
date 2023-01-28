@@ -13,7 +13,7 @@ const SoldItemsList = () => {
     if (token===""){
       navigate("/manufacturer/login")
     } else {
-      fetch("/api/product/getall",{
+      fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/product/getall",{
         headers:{
           Authorization:`Bearer ${token}`
         }

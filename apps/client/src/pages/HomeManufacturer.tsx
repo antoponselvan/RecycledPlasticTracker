@@ -19,13 +19,12 @@ const HomeManufacturer = () => {
     if (token === "") {
       navigate("/manufacturer/login")
     } else {
-      fetch("/api/manufacturer/basics",
+      fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/basics",
         {headers:{
           Authorization: `Bearer ${token}`
         }})
       .then((res)=>res.json())
       .then((data)=>{
-        // console.log(data)
         setManufacturerBasicInfo(data)
       })
     }
@@ -59,8 +58,10 @@ const HomeManufacturer = () => {
           </Card.Header>
           <Card.Body>          
             <Card.Text>
-            <h6>Total Products registered  :  <span>{manufacturerBasicInfo.productCount}</span></h6>
-            <h6>Average Recycled Plastic (%) : <span>{manufacturerBasicInfo.avgRecycledPlasticPct}</span></h6>
+            Total Products registered  :  <span>{manufacturerBasicInfo.productCount}</span>
+            </Card.Text>
+            <Card.Text>
+            Average Recycled Plastic (%) : <span>{manufacturerBasicInfo.avgRecycledPlasticPct}</span>
             </Card.Text>
           </Card.Body>
           </Card>

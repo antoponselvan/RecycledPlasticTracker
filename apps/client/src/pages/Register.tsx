@@ -14,7 +14,7 @@ const Register = () => {
   const wallet = useAnchorWallet()
 
   const registerToDB = async (name, regCountry, regNum, email,phoneNum, address, password, solanaPubKey) => {
-    const res = await fetch("/api/manufacturer/register",{
+    const res = await fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/register",{
       method:"POST",
       body:JSON.stringify({
         name, regCountry, regNum, email,phoneNum, address, password, solanaPubKey
@@ -79,9 +79,9 @@ const Register = () => {
 
   return (
     <>
-    <Row className="text-center">
-    <Col sm={2} md={3} lg={4}></Col>
-    <Col className="p-1 m-1 mt-3">
+    <Row className="text-center m-1">
+    <Col sm={1} md={3} lg={4}></Col>
+    <Col className="p-1 mt-3">
       <h3>Register  Manufacturer</h3>
 
       <Form className="text-center mt-4" onSubmit={handleSubmit}>
@@ -93,7 +93,7 @@ const Register = () => {
 
         <div className="bg-secondary py-2">
         <div className="d-flex m-1">
-          <Form.Label style={{width:"150px"}}>Name</Form.Label>
+          <Form.Label style={{width:"150px"}}>Name1</Form.Label>
           <Form.Control style={{width:"250px"}} name="name"></Form.Control>
         </div>
         <div className="d-flex m-1">
@@ -140,7 +140,7 @@ const Register = () => {
       <p> Have an ID? - Login <a  style={{ cursor: 'pointer' }} onClick={()=>navigate('/manufacturer/login')}>HERE</a></p>
     </Col>
 
-    <Col sm={2} md={3} lg={4} className=""></Col>
+    <Col sm={1} md={3} lg={4} className=""></Col>
     </Row>
     </>
   )

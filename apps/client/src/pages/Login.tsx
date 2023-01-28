@@ -1,6 +1,6 @@
 // @ts-nocheck 
 import {Row, Col, Form, Button} from "react-bootstrap"
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom"
 import {useSelector, useDispatch} from "react-redux"
 import {manufacturerActions} from "../store/manufacturerSlice"
@@ -8,23 +8,19 @@ import {manufacturerActions} from "../store/manufacturerSlice"
 const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  // const manufacturer = useSelector((state)=>state.manufacturer)
-  // const token = useSelector((state)=>state.token)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(()=>{
-    // const manufacturer1 = JSON.parse(localStorage.getItem('manufacturer'))
-    // console.log(manufacturer)
     const token = localStorage.getItem("token")
 
     if (token){
-      fetch("/api/general/verifyuser",{
+      fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/general/verifyuser",{
         headers:{
           Authorization: `bearer ${token}`
         }
       }).then((res)=>{
         console.log(res.status)
         if (res.status !== 200){
-          // window.alert("Login Failed")
           throw new Error({msg:"Invalid User"})
         }
         return res.json()})
@@ -42,12 +38,9 @@ const Login = () => {
     }
   },[])
 
-  const handleLogin = (e) => {
-    e.preventDefault()
-    // console.log(e.target.email.value, e.target.password.value)
-    const email = e.target.email.value
-    const password = e.target.password.value
-    fetch("/api/manufacturer/login",{
+  const handleLogin = (email,password) => {
+    setIsLoading(true)
+    fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/login",{
       method:"POST",
       body:JSON.stringify({email, password}),
       headers:{
@@ -55,46 +48,73 @@ const Login = () => {
       },
     }).then((res)=>{
       if (res.status !== 202){
+        setIsLoading(false)
         window.alert("Login Failed")
         throw new Error({msg: "Fetch Failed"})
       }
       return res.json()})
     .then((data)=>{
-      console.log(data)
+      setIsLoading(false)
       localStorage.setItem("token",data.token)
-      // localStorage.setItem("manufacturer", data.manufacturer)
       dispatch(manufacturerActions.updateToken(data.token))
       dispatch(manufacturerActions.updateManufacturer(data.manufacturer))
       navigate("/manufacturer/home")
     })
     .catch((error)=>{
+      setIsLoading(false)
       console.log(error)
     })
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const email = e.target.email.value
+    const password = e.target.password.value
+    handleLogin(email, password)
+  }
+
+  const handleDemo = () => {
+    const email = "e@e.com"
+    const password = "e123"
+    handleLogin(email,password)
+  }
+
   return (
     <>
-    <Row className="text-center">
+    <Row className="text-center m-1">
       
     <Col sm={2} md={3} lg={4}></Col>
     <Col className="border p-1 m-2 mt-5">
-      <h3>LOGIN</h3>
-      <Form className="text-center mt-2" onSubmit={handleLogin}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Enter email" />
-        </Form.Group>
+      <h3>MANUFACTURER LOGIN</h3>
+      {isLoading ?
+        <div>
+          <div className="spinner-grow" role="status"></div>
+          <div className="spinner-grow" role="status"></div>
+          <div className="spinner-grow" role="status"></div>
+        </div>
+        :
+        <Form className="text-center mt-2" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" name="email" placeholder="Enter email" />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" name="password" placeholder="Password" />
-        </Form.Group>
-        
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-      </Form>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" name="password" placeholder="Password" />
+          </Form.Group>
+          
+          <Button variant="primary" type="submit">
+            Login
+          </Button>
+        </Form>
+      }
       <p> Dont have an ID? - Register <a  style={{ cursor: 'pointer' }} onClick={()=>navigate('/manufacturer/register')}>HERE</a></p>
+      <p>For Demo w/o Login ID - 
+        <Button variant="secondary" onClick={handleDemo}>
+          Demo
+        </Button>
+      </p>
     </Col>
 
     <Col sm={2} md={3} lg={4}></Col>

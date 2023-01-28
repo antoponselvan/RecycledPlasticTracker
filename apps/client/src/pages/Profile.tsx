@@ -27,7 +27,7 @@ const Profile = () => {
       return
     }
 
-    fetch("/api/manufacturer/updateprofile",{
+    fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/updateprofile",{
       method: "PUT",
       body: JSON.stringify({
         id:manufacturer._id,
@@ -56,7 +56,7 @@ const Profile = () => {
 
   return (
     <>
-    <Row className="text-center">
+    <Row className="text-center m-1">
       
       <Col sm={2} md={3} lg={4}></Col>
       <Col className="border p-1 m-2 mt-5">

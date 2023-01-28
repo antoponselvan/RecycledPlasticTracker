@@ -69,7 +69,7 @@ const ItemDetail = () => {
   }
 
   useEffect(()=>{
-    fetch(("/api/product/getone/"+productId))
+    fetch(("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/product/getone/"+productId))
     .then((res)=>res.json())
     .then((data)=>{
       console.log(data)
@@ -87,7 +87,7 @@ const ItemDetail = () => {
   console.log(webWeb3DataMatch)
   return (
     <>
-    <Row className="text-center mt-3">
+    <Row className="text-center mt-3 m-1">
       <Col lg={4} md={3} sm={1}></Col>
       <Col>
         <Row className="border">
@@ -134,7 +134,7 @@ const ItemDetail = () => {
         
         </Row>
 
-        <Row className="border mt-2 mb-5">
+        <Row className="border mt-2 mb-2">
           <h3>Manufacturer Details</h3>
           <Form className="text-center mt-2">
           <div className="d-flex m-1">
@@ -169,8 +169,8 @@ const ItemDetail = () => {
         </Row>
 
       </Col>
-      <Col lg={4} sm={1} md={3}>
-      <div className="d-flex justify-content-start align-items-start mt-5">
+      <Col lg={4} sm={1} md={3} className="m-1">
+      <div className="d-flex justify-content-start align-items-start">
         <div className="bg-success p-1">
           <FontAwesomeIcon icon={faSquareCheck}/>
         </div>

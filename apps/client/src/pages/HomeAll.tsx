@@ -23,7 +23,7 @@ const HomeAll = () => {
             <Button className="m-2" style={{width:"160px"}} onClick={()=>navigate('/track')}>Purchaser</Button>
             </Card.Header>
             </Card>
-            <img className="" src={img1} alt=""/>  
+            <img className="img-fluid" src={img1} alt=""/>  
           {/* </Stack> */}
         </Col>
         <Col sm={1} md={2} lg={3}></Col>

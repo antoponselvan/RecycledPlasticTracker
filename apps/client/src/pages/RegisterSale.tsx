@@ -101,7 +101,7 @@ const RegisterSale = () => {
   
 
   const getManufacturerKey = async(id: String) => {
-    const res = await fetch(("/api/manufacturer/"+id))
+    const res = await fetch(("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/"+id))
     // console.log(res.status)
     if (res.status !== 200){
       return
@@ -111,7 +111,7 @@ const RegisterSale = () => {
   }
 
   const getIngridientDetails = async(id: String) => {
-    const res = await fetch("/api/product/getone/"+id)
+    const res = await fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/product/getone/"+id)
     if (res.status !== 200){
       return
     }
@@ -126,7 +126,7 @@ const RegisterSale = () => {
 
 
   const writeToDB = async(token,name, description,serialNum,rePlasticPct,purchaserId,ingridientId,saleYear,saleMonth,saleDate,manufacLocLatDeg,manufacLocLongDeg,recyclingStartPoint) => {
-    const res = await fetch("/api/product/register",{
+    const res = await fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/product/register",{
       method:"POST",
       headers:{
         "content-Type":"application/json",
@@ -249,8 +249,8 @@ const RegisterSale = () => {
 
   return (
     <>
-    <Row className="text-center">
-      <Col sm={2} md={3} lg={4}></Col>
+    <Row className="text-center m-1">
+      <Col sm={1} md={3} lg={4}></Col>
       <Col className=" p-1 m-2 mt-3">
         <h3>Register Product Sold</h3>
         <Form className="text-center mt-4" onSubmit={handleSubmit}>
@@ -261,56 +261,56 @@ const RegisterSale = () => {
           <div className="mt-4 py-2 mx-2 square bg-secondary rounded-top">
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Name</Form.Label>
-            <Form.Control style={{width:"300px"}} name="name"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="name"></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Description</Form.Label>
-            <Form.Control style={{width:"300px"}} name="description"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="description"></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Re-Plastic %</Form.Label>
-            <Form.Control style={{width:"300px"}} name="rePlasticPct"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="rePlasticPct"></Form.Control>
           </div>
           </div>
 
           <div className="mt-4 mx-2 py-2 square bg-secondary rounded-top">
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Serial #</Form.Label>
-            <Form.Control style={{width:"300px"}} name="serialNum"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="serialNum"></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Purchaser's ID</Form.Label>
-            <Form.Control style={{width:"300px"}} name="purchaserId"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="purchaserId"></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}}>Ingridient Id</Form.Label>
-            <Form.Control style={{width:"300px"}} name="ingridientId"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="ingridientId"></Form.Control>
           </div>
           </div>
 
           <div className="mt-4 mx-2 py-2 square bg-secondary rounded-top">
           <div className="d-flex mx-1">
             <Form.Label style={{width:"150px"}} className="">Sale Year</Form.Label>
-            <Form.Control style={{width:"300px"}} name="saleYear"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="saleYear"></Form.Control>
           </div>
           <div className="d-flex m-1 ">
             <Form.Label style={{width:"150px"}} className="">Sale Month</Form.Label>
-            <Form.Control style={{width:"300px"}} name="saleMonth"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="saleMonth"></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}} className="">Sale Date</Form.Label>
-            <Form.Control style={{width:"300px"}} name="saleDate"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="saleDate"></Form.Control>
           </div>
           </div>
 
           <div className="mt-4 mx-2 py-2 square bg-secondary rounded-top">
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}} className="">Location (Lat)</Form.Label>
-            <Form.Control style={{width:"300px"}} name="manufacLocLatDeg"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="manufacLocLatDeg"></Form.Control>
           </div>
           <div className="d-flex m-1">
             <Form.Label style={{width:"150px"}} className="">Location (Lng)</Form.Label>
-            <Form.Control style={{width:"300px"}} name="manufacLocLongDeg"></Form.Control>
+            <Form.Control style={{width:"250px"}} name="manufacLocLongDeg"></Form.Control>
           </div>
           </div>  
           <div className="d-flex m-1 mt-3 mb-3">
@@ -324,7 +324,7 @@ const RegisterSale = () => {
         </Form>
       </Col>
   
-      <Col sm={2} md={3} lg={4}></Col>
+      <Col sm={1} md={3} lg={4}></Col>
       </Row>
 {/*       
     <button onClick={trialWriteProduct}>Test Write</button>
