@@ -14,7 +14,7 @@ const Login = () => {
     const token = localStorage.getItem("token")
 
     if (token){
-      fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/general/verifyuser",{
+      fetch("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/general/verifyuser",{
         headers:{
           Authorization: `bearer ${token}`
         }
@@ -40,7 +40,7 @@ const Login = () => {
 
   const handleLogin = (email,password) => {
     setIsLoading(true)
-    fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/login",{
+    fetch("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/manufacturer/login",{
       method:"POST",
       body:JSON.stringify({email, password}),
       headers:{

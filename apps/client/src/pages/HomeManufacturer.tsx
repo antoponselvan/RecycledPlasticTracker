@@ -19,7 +19,7 @@ const HomeManufacturer = () => {
     if (token === "") {
       navigate("/manufacturer/login")
     } else {
-      fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/basics",
+      fetch("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/manufacturer/basics",
         {headers:{
           Authorization: `Bearer ${token}`
         }})
@@ -90,7 +90,7 @@ const HomeManufacturer = () => {
             manufacturerBasicInfo.latestProductList.map((row, idx)=>
             <tr key={idx} onClick={handleProductClick(row._id)} style={{cursor:"pointer"}}>
               <td>{idx+1}</td>
-              <td>{row.name}</td>
+              <td className="text-primary"><u>{row.name}</u></td>
               <td>{row.rePlasticPct}</td>
               <td>Lat: {row.manufacLocLatDeg}; Long: {row.manufacLocLongDeg}</td>
               <td>{row.saleDate}-{row.saleMonth}-{row.saleYear}</td>

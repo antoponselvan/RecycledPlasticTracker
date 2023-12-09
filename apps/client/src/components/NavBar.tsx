@@ -7,7 +7,7 @@ import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
 import { Button } from "react-bootstrap"
-import {faMagnifyingGlass, faHouseUser, faUser, faSquareCheck, faSquareXmark} from "@fortawesome/free-solid-svg-icons"
+import {faMagnifyingGlass, faHouseUser, faUser, faSquareCheck, faSquareXmark, faRegistered, faFilePen} from "@fortawesome/free-solid-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 const NavBar = () => {
@@ -30,15 +30,17 @@ const NavBar = () => {
           <Nav className="me-auto">
             <Nav.Link onClick={()=>navigate("/track")}> <FontAwesomeIcon icon={faMagnifyingGlass}/></Nav.Link>
           </Nav>
+          {(manufacturer.name) && <>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          {(manufacturer.name) && <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto me-3 align-items-center">
-              <Nav.Link onClick={()=>navigate("/manufacturer/home")}><FontAwesomeIcon icon={faHouseUser}/></Nav.Link>
-              <Nav.Link onClick={()=>navigate("/manufacturer/registersale")}><Button variant='secondary'>Register Product</Button></Nav.Link>
-              <Nav.Link onClick={()=>navigate("/manufacturer/solditemslist")}><Button variant='secondary'>Past Registrations</Button></Nav.Link>
-              <Nav.Link onClick={()=>navigate("/manufacturer/profile")}><FontAwesomeIcon icon={faUser} /></Nav.Link>
+              <Nav.Link onClick={()=>navigate("/manufacturer/home")}> <div className='p-2'> <FontAwesomeIcon icon={faHouseUser}/> Home</div></Nav.Link>
+              <Nav.Link onClick={()=>navigate("/manufacturer/registersale")}> <div className='p-2'><FontAwesomeIcon icon={faFilePen}/> Register Product</div></Nav.Link>
+              <Nav.Link onClick={()=>navigate("/manufacturer/solditemslist")}><div className='p-2'><FontAwesomeIcon icon={faRegistered}/> Past Registrations</div></Nav.Link>
+              <Nav.Link onClick={()=>navigate("/manufacturer/profile")}><div className='p-2'><FontAwesomeIcon icon={faUser} /> Profile</div></Nav.Link>
             </Nav>
-          </Navbar.Collapse>}
+          </Navbar.Collapse>
+          </>}
           
           {(!manufacturer.name) ?
             <Button onClick={()=>navigate("/manufacturer/login")}><p className="m-0 p-0">Login</p></Button>

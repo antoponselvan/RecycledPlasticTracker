@@ -27,7 +27,7 @@ const Profile = () => {
       return
     }
 
-    fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/updateprofile",{
+    fetch("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/manufacturer/updateprofile",{
       method: "PUT",
       body: JSON.stringify({
         id:manufacturer._id,

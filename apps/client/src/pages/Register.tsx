@@ -14,7 +14,7 @@ const Register = () => {
   const wallet = useAnchorWallet()
 
   const registerToDB = async (name, regCountry, regNum, email,phoneNum, address, password, solanaPubKey) => {
-    const res = await fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/register",{
+    const res = await fetch("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/manufacturer/register",{
       method:"POST",
       body:JSON.stringify({
         name, regCountry, regNum, email,phoneNum, address, password, solanaPubKey

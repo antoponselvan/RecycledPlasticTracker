@@ -101,7 +101,7 @@ const RegisterSale = () => {
   
 
   const getManufacturerKey = async(id: String) => {
-    const res = await fetch(("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/manufacturer/"+id))
+    const res = await fetch(("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/manufacturer/"+id))
     // console.log(res.status)
     if (res.status !== 200){
       return
@@ -111,7 +111,7 @@ const RegisterSale = () => {
   }
 
   const getIngridientDetails = async(id: String) => {
-    const res = await fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/product/getone/"+id)
+    const res = await fetch("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/product/getone/"+id)
     if (res.status !== 200){
       return
     }
@@ -126,7 +126,7 @@ const RegisterSale = () => {
 
 
   const writeToDB = async(token,name, description,serialNum,rePlasticPct,purchaserId,ingridientId,saleYear,saleMonth,saleDate,manufacLocLatDeg,manufacLocLongDeg,recyclingStartPoint) => {
-    const res = await fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/product/register",{
+    const res = await fetch("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/product/register",{
       method:"POST",
       headers:{
         "content-Type":"application/json",
@@ -283,7 +283,7 @@ const RegisterSale = () => {
             <Form.Control style={{width:"250px"}} name="purchaserId"></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Ingridient Id</Form.Label>
+            <Form.Label style={{width:"150px"}}>Ingredient Id</Form.Label>
             <Form.Control style={{width:"250px"}} name="ingridientId"></Form.Control>
           </div>
           </div>

@@ -6,7 +6,7 @@ export default defineConfig({
   server:{
     proxy: {
       // "/api":"http://localhost:3000"
-      "/api":"https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/"
+      "/api":"https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/"
     },
   },
   plugins: [react()],

@@ -69,7 +69,7 @@ const ItemDetail = () => {
   }
 
   useEffect(()=>{
-    fetch(("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/product/getone/"+productId))
+    fetch(("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/product/getone/"+productId))
     .then((res)=>res.json())
     .then((data)=>{
       console.log(data)
@@ -94,41 +94,41 @@ const ItemDetail = () => {
           <h3>Product Details</h3>
           <Form className="text-center mt-1">
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Product ID</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.product._id}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Product ID</Form.Label>
+            <Form.Control style={{width:"290px"}} disabled placeholder={itemDetail.product._id}></Form.Control>
           </div><div className="d-flex m-1 align-items-center">
-            <Form.Label style={{width:"150px"}}>Serial #</Form.Label>
-            <Form.Control style={{width:"280px" , color:"red"}} className="me-3" disabled placeholder={itemDetail.product.serialNum}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Serial #</Form.Label>
+            <Form.Control style={{width:"250px" , color:"red"}} className="me-3" disabled placeholder={itemDetail.product.serialNum}></Form.Control>
             {(webWeb3DataMatch.serialNum) ? 
             <div className="bg-success border p-1"><FontAwesomeIcon icon={faSquareCheck}/></div> : 
             <div className="bg-danger border p-1"><FontAwesomeIcon icon={faSquareXmark}/></div>}
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Name</Form.Label>
-            <Form.Control style={{width:"320px", color:"red"}} disabled placeholder={itemDetail.product.name}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Name</Form.Label>
+            <Form.Control style={{width:"290px", color:"red"}} disabled placeholder={itemDetail.product.name}></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Description</Form.Label>
-            <Form.Control style={{width:"320px"}}disabled placeholder={itemDetail.product.description}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Description</Form.Label>
+            <Form.Control style={{width:"290px"}}disabled placeholder={itemDetail.product.description}></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Buyer's Key</Form.Label>
-            <Form.Control className="me-3" style={{width:"280px"}} disabled placeholder={itemDetail.purchaser.solanaPubKey}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Buyer's Key</Form.Label>
+            <Form.Control className="me-3" style={{width:"250px"}} disabled placeholder={itemDetail.purchaser.solanaPubKey}></Form.Control>
             {(webWeb3DataMatch.purchaserKey) ? 
             <div className="bg-success border p-1"><FontAwesomeIcon icon={faSquareCheck}/></div> : 
             <div className="bg-danger border p-1"><FontAwesomeIcon icon={faSquareXmark}/></div>}
           </div>
           
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Re-Plastic %</Form.Label>
-            <Form.Control className="me-3" style={{width:"280px"}} disabled placeholder={itemDetail.product.rePlasticPct}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Re-Plastic %</Form.Label>
+            <Form.Control className="me-3" style={{width:"250px"}} disabled placeholder={itemDetail.product.rePlasticPct}></Form.Control>
             {(webWeb3DataMatch.rePlasticPct) ? 
             <div className="bg-success border p-1"><FontAwesomeIcon icon={faSquareCheck}/></div> : 
             <div className="bg-danger border p-1"><FontAwesomeIcon icon={faSquareXmark}/></div>}
           </div>
           <div className="d-flex m-1 mb-4">
-            <Form.Label style={{width:"150px"}} className="">Date of Sale</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.product.saleDate+"-"+itemDetail.product.saleMonth+"-"+itemDetail.product.saleYear}></Form.Control>
+            <Form.Label style={{width:"100px"}} className="">Date of Sale</Form.Label>
+            <Form.Control style={{width:"290px"}} disabled placeholder={itemDetail.product.saleDate+"-"+itemDetail.product.saleMonth+"-"+itemDetail.product.saleYear}></Form.Control>
           </div>
           </Form>
         
@@ -138,31 +138,31 @@ const ItemDetail = () => {
           <h3>Manufacturer Details</h3>
           <Form className="text-center mt-2">
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Public Key</Form.Label>
-            <Form.Control className="me-3" style={{width:"280px"}} disabled placeholder={itemDetail.manufacturer.solanaPubKey}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Public Key</Form.Label>
+            <Form.Control className="me-3" style={{width:"250px"}} disabled placeholder={itemDetail.manufacturer.solanaPubKey}></Form.Control>
             {(webWeb3DataMatch.manufacturerKey) ? 
             <div className="bg-success border p-1"><FontAwesomeIcon icon={faSquareCheck}/></div> : 
             <div className="bg-danger border p-1"><FontAwesomeIcon icon={faSquareXmark}/></div>}
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Name</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled  placeholder={itemDetail.manufacturer.name}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Name</Form.Label>
+            <Form.Control style={{width:"290px"}} disabled  placeholder={itemDetail.manufacturer.name}></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Country</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.manufacturer.regCountry}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Country</Form.Label>
+            <Form.Control style={{width:"290px"}} disabled placeholder={itemDetail.manufacturer.regCountry}></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Registration #</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.manufacturer.regNum}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Registration #</Form.Label>
+            <Form.Control style={{width:"290px"}} disabled placeholder={itemDetail.manufacturer.regNum}></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Email</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.manufacturer.email}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Email</Form.Label>
+            <Form.Control style={{width:"290px"}} disabled placeholder={itemDetail.manufacturer.email}></Form.Control>
           </div>
           <div className="d-flex m-1">
-            <Form.Label style={{width:"150px"}}>Phone #</Form.Label>
-            <Form.Control style={{width:"320px"}} disabled placeholder={itemDetail.manufacturer.phoneNum}></Form.Control>
+            <Form.Label style={{width:"100px"}}>Phone #</Form.Label>
+            <Form.Control style={{width:"290px"}} disabled placeholder={itemDetail.manufacturer.phoneNum}></Form.Control>
           </div>
           
         </Form>

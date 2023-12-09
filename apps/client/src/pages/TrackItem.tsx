@@ -49,7 +49,7 @@ const TrackItem = () => {
 
     // Need Some error handling for above inputs
 
-    fetch("https://y1ibu1burk.execute-api.us-east-1.amazonaws.com/api/general/track",{
+    fetch("https://j5so6wp9z0.execute-api.us-east-1.amazonaws.com/api/general/track",{
       method:"POST",
       headers:{
         "Content-Type":"application/json",
@@ -150,7 +150,7 @@ const TrackItem = () => {
                     <tr key={idx} onClick={handleProductClick(row.productId)} style={{cursor:"pointer"}}>
                       <td>{idx+1}</td>
                       <td>{row.manufacturerName}</td>
-                      <td>{row.productName}</td>
+                      <td className="text-primary"><u>{row.productName}</u></td>
                       <td>{row.rePlasticPct}</td>
                       <td>{row.location}</td>
                       <td>{row.saleDate}</td>
